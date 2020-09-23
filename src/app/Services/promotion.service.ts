@@ -45,7 +45,8 @@ export class PromotionService {
     })
 
     //return valeur minimale non egale à zero
-    return [ this.offreInitial , Math.min.apply(null, [offreslide,offreminus , offrepercentage].filter(Boolean))];
+    //return [ this.offreInitial , Math.min.apply(null, [offreslide,offreminus , offrepercentage].filter(Boolean))];
+    return [ this.offreInitial , Math.min(...[offreslide,offreminus , offrepercentage].filter(Boolean))];
   }
 
 }
