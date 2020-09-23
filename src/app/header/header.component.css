@@ -1,0 +1,43 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  height: 50px;
+}
+
+.container2{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+  align-items: center;
+
+}
+
+a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.badge:after{
+  content:attr(value);
+  font-size:12px;
+  background: red;
+  color: #ffffff;
+  border-radius:50%;
+  padding:3px;
+  position:relative;
+  left:-8px;
+  top:-20px;
+}
+
+
+span{
+  padding:5px;
+}

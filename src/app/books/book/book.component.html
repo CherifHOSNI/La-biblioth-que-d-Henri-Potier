@@ -1,0 +1,15 @@
+
+
+    <div class="imgContainer">
+      <a [routerLink]="['/bookdetails', book.isbn]">
+        <div class="image">
+          <img src={{book.cover}}>
+        </div>
+      </a>
+    </div>
+    <h5 class="bookTitle">{{book.title}}</h5>
+    <h6>Prix {{book.price}}€</h6>
+    <a class="btn cart px-auto" (click)="ajoutAchat()">Ajouter au panier</a>
+
+
+

@@ -1,0 +1,27 @@
+<div class="navbar navbar-expand-lg navbar-light bg-light container">
+
+    <div class="container2">
+      <a class="navbar-brand" routerLink="/lib">
+        <i class="fa fa-book fa-2x" aria-hidden="true"> </i>
+        <span class="d-none d-md-block">Librairie</span>
+      </a>
+    </div>
+
+    <div class="container2">
+      <form class="form-inline my-2 my-lg-0 d-none d-md-block">
+        <input #inputSearch2
+          class="form-control mr-sm-2"
+               type="search"
+               placeholder="Recherche livres"
+               aria-label="Search"
+          (keyup)="onSubmit(inputSearch2.value)">
+      </form>
+      <i class="fa fa-user-circle fa-2x" style="padding: 10px" aria-hidden="true"> </i>
+      <a class="navbar-brand" [routerLink]="['/panier']" >
+        <i class="fa badge" style="font-size:35px; padding: 0px" [attr.value]="count" >&#xf07a;</i>
+      </a>
+    </div>
+</div>
+
+
+

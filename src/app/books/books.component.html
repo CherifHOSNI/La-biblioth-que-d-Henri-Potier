@@ -1,0 +1,34 @@
+<div class="container">
+  <h3>Bibliothèque</h3>
+
+
+<hr>
+
+  <div   *ngIf="bookSearch.length==0">
+    <p>
+      Pas de livre correspondants à votre recherche
+    </p>
+  </div>
+
+
+<div class="bookslist">
+
+
+
+
+  <div class="bookcontainer" *ngFor="let bookelement of bookSearch">
+
+<app-book [book]=bookelement></app-book>
+
+  </div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+

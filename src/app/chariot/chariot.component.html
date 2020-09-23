@@ -1,0 +1,115 @@
+<div class="container" *ngIf="uniqListArticle?.length == 0">
+  <div class="container-fluid mt-100">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h5>Panier</h5>
+          </div>
+          <div class="card-body cart">
+            <div class="col-sm-12 empty-cart-cls text-center">
+              <img src="https://i.imgur.com/dCdflKN.png" width="130" height="130" class="img-fluid mb-4 mr-3">
+              <h3><strong>Oups, votre panier est vide</strong></h3>
+              <h4 [routerLink]="['/lib']">Vous pouvez acheter un livre ici :)</h4>
+              <a [routerLink]="['/lib']" class="btn btn-primary cart-btn-transform m-3" data-abc="true">shopping</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container" *ngIf="uniqListArticle?.length > 0">
+  <div class="container-fluid mt-100">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h5>Panier</h5>
+          </div>
+          <p class="valeurAchat">
+            La totalité de votre panier est de {{PrixTotal}}€, on a actuellement une remise de {{PrixTotal-Remise}}€. La valeur de vos ahats apres remise est de {{Remise}}€.
+          </p>
+          <!--  <div class="confirmationButtons">
+             <a href="#" class="btn cartTotal px-auto">Total des achats 75€</a>
+             </div>-->
+          <hr>
+          <div class="element" *ngFor="let book of uniqListArticle; let i = index">
+            <div class="imgContainer">
+              <a [routerLink]="['/bookdetails', book.isbn]">
+                <div class="image">
+                  <img src={{book.cover}}>
+                </div>
+              </a>
+            </div>
+            <div class="bookInfo">
+              <h4>{{book.title}}</h4>
+              <table class="table table-borderless w-auto text-xsmall">
+                <thead>
+                <tr>
+                  <th scope="col">Prix unité</th>
+                  <th scope="col">Quantité</th>
+                  <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>{{book.price}}€</td>
+                  <td>
+                    <!--
+                       <input type="number" id="quantity"  value="count[i]" min="1" max="100">
+                       -->
+                    {{count[i]}}
+                  </td>
+                  <td>
+                    <i class="fa fa-trash  fa-2x" aria-hidden="true" (click)="supprimerLivre(book)"></i>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <hr>
+          </div>
+          <div class="confirmationButtons">
+            <a class="btn cartempty px-auto" (click)="viderPanier()">Vider panier</a>
+            <a  class="btn cartconfirm px-auto">Confirmer achat</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--
+     <h2>Panier</h2>
+     -->
+</div>
+<div class="container" *ngIf="!similairBooks.length == 0 && !uniqListArticle?.length == 0">
+  <div class="container-fluid mt-100">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h5>Suggestion de livres du meme auteur</h5>
+          </div>
+          <div class="card-body cart">
+            <div class="element" *ngFor="let book of similairBooks; let i = index">
+              <div class="imgContainer">
+                <a [routerLink]="['/bookdetails', book.isbn]">
+                  <div class="image">
+                    <img src={{book.cover}}>
+                  </div>
+                </a>
+              </div>
+              <div class="bookInfo">
+                <h4>{{book.title}}</h4>
+                <h6>
+                  prix : {{book.price}}€      <a class="btn cart2 px-auto" (click)="ajoutAchat(book)">Ajouter au panier</a>
+                </h6>
+              </div>
+              <hr>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

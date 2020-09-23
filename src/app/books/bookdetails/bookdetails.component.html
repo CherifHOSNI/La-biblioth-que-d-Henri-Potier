@@ -1,0 +1,35 @@
+<div class="container errorBook" *ngIf="!book">
+
+  <div class="container-fluid mt-100">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h5>Livre non trouvé !</h5>
+          </div>
+          <div class="card-body cart">
+            <h4 [routerLink]="['/lib']">Vous pouvez acheter un livre ici :)</h4> <a [routerLink]="['/lib']" class="btn btn-primary cart-btn-transform m-3" data-abc="true">shopping</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container" *ngIf="book">
+  <div class="bookimagecontainer">
+    <div class="logo">
+      <img src={{book.cover}}>
+    </div>
+  </div>
+  <div class="description-container">
+    <h3>Résumé</h3>
+    <p>{{book.synopsis.join()}}</p>
+    <h3>
+      Détails
+    </h3>
+    <p>Prix {{book.price}}€</p>
+    <p>isbn {{book.isbn}}</p>
+    <a class="btn cart2 px-auto" (click)="ajoutAchat()">Ajouter au panier</a>
+  </div>
+</div>
+
