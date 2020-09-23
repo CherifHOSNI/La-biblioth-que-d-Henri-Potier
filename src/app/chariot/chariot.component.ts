@@ -14,12 +14,13 @@ import {BookService} from "../Services/book.service";
 export class ChariotComponent implements OnInit {
 
   //enlever les livres selectionnés plusieurs fois dans l'affichage
-  uniqListArticle : Book[];
+  uniqListArticle : Book[] = [];
   //calcul occurences des livres
   count : number[];
   //suggestion des livres similaires
   similairBooks : Book[] = [];
   PrixTotal : number;
+  Remise : number;
   Remise : number;
 
   constructor(private shoppingList : ShoppingListService,
