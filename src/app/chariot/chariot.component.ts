@@ -21,7 +21,6 @@ export class ChariotComponent implements OnInit {
   similairBooks : Book[] = [];
   PrixTotal : number;
   Remise : number;
-  Remise : number;
 
   constructor(private shoppingList : ShoppingListService,
               private promotionService: PromotionService,
