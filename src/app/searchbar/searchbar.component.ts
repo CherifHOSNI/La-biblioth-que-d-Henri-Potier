@@ -1,22 +1,17 @@
-import {Component, OnInit} from '@angular/core';
-import {BookService} from "../Services/book.service";
+import { Component, OnInit } from '@angular/core';
+import { BookService } from '../Services/book.service';
 
 @Component({
   selector: 'app-searchbar',
   templateUrl: './searchbar.component.html',
-  styleUrls: ['./searchbar.component.css']
+  styleUrls: ['./searchbar.component.css'],
 })
 export class SearchbarComponent implements OnInit {
+  constructor(private bookService: BookService) {}
 
-
-
-  constructor(private  bookService: BookService) { }
-
-  ngOnInit(): void {
-  }
-  onSubmit(searchValue: string) {
-    //mots entrés dans la bare de recherche ensuite captés par le componenets books pour rechercher les livres
+  ngOnInit(): void {}
+  onSubmit(searchValue: string): void {
+    // mots entrés dans la bare de recherche ensuite captés par le componenets books pour rechercher les livres
     this.bookService.searchKeyWords.emit(searchValue);
   }
-
 }

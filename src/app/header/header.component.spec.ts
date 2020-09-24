@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
-import {HttpClientTestingModule} from "@angular/common/http/testing";
-import {PromotionService} from "../Services/promotion.service";
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { PromotionService } from '../Services/promotion.service';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -10,11 +10,10 @@ describe('HeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ],
+      declarations: [HeaderComponent],
       imports: [HttpClientTestingModule],
-      providers: [PromotionService]
-    })
-    .compileComponents();
+      providers: [PromotionService],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -22,6 +21,4 @@ describe('HeaderComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
-
 });

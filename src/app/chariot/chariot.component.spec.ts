@@ -8,9 +8,8 @@ describe('ChariotComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChariotComponent ]
-    })
-    .compileComponents();
+      declarations: [ChariotComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -18,9 +17,5 @@ describe('ChariotComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
-  it('should ChariotComponent be created',()=>{
-    expect(component).toBeTruthy();
-  })
-
 });
+

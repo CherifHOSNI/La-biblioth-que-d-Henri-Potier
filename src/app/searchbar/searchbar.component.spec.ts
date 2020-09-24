@@ -16,8 +16,14 @@ describe('SearchbarComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(SearchbarComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+
   });
 
+
+  /*it('should emit when the button is clicked', () => {
+    spyOn(component.change, 'emit');
+    button.nativeElement.click();
+    expect(component.change.emit).toHaveBeenCalled();
+  });*/
 
 });
