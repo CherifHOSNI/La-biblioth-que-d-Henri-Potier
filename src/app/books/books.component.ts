@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { BookService } from '../Services/book.service';
 import { Book } from '../Models/book.model';
 
@@ -7,7 +7,7 @@ import { Book } from '../Models/book.model';
   templateUrl: './books.component.html',
   styleUrls: ['./books.component.css'],
 })
-export class BooksComponent implements OnInit {
+export class BooksComponent implements OnInit, OnDestroy {
   bookList: Book[];
   bookSearch: Book[] = [];
 
@@ -24,5 +24,9 @@ export class BooksComponent implements OnInit {
         (b) => b.title.toLowerCase().indexOf(searchKeyWord.toLowerCase()) !== -1
       );
     });
+  }
+
+  ngOnDestroy(): void {
+    this.bookService.searchKeyWords.unsubscribe();
   }
 }

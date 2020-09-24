@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { BookService } from '../Services/book.service';
 import { ShoppingListService } from '../Services/shopping-list.service';
 
@@ -7,7 +7,7 @@ import { ShoppingListService } from '../Services/shopping-list.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   // nombre de livres dans le panier
   count = 0;
 
@@ -26,5 +26,9 @@ export class HeaderComponent implements OnInit {
   onSubmit(searchValue: string): void {
     // mots entrés dans la bare de recherche ensuite captés par le componenets books pour rechercher les livres
     this.bookService.searchKeyWords.emit(searchValue);
+  }
+
+  ngOnDestroy(): void {
+    this.shoppingListService.selectedBooksCount.unsubscribe();
   }
 }

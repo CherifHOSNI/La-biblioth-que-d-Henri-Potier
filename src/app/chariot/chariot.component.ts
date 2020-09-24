@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ShoppingListService } from '../Services/shopping-list.service';
 import { PromotionService } from '../Services/promotion.service';
 import { Book } from '../Models/book.model';
@@ -10,7 +10,7 @@ import { BookService } from '../Services/book.service';
   templateUrl: './chariot.component.html',
   styleUrls: ['./chariot.component.css'],
 })
-export class ChariotComponent implements OnInit {
+export class ChariotComponent implements OnInit, OnDestroy {
   // enlever les livres selectionnés plusieurs fois dans l'affichage
   uniqListArticle: Book[] = [];
   // calcul occurences des livres
@@ -108,5 +108,9 @@ export class ChariotComponent implements OnInit {
   ajoutAchat(b: Book): void {
     this.shoppingList.addBook(b);
     this.updatePanier();
+  }
+
+  ngOnDestroy(): void {
+    this.bookService.getBooks().unsubscribe();
   }
 }
